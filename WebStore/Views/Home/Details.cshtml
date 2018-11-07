@@ -1,0 +1,26 @@
+﻿@model WebStore.Modeis.EmployeeView
+@{
+    ViewData["Title"] = "Список сотрудников";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device-width" charset="utf-8" />
+    <title>
+        Index
+    </title>
+</head>
+<body>
+    <table class="table table-bordered">
+        <tr>
+            <td>@Model.FirstName</td>
+            <td>@Model.Surname</td>
+            <td>@Model.Age</td>
+            <td>@Model.Position</td>
+            <td>@Model.Salary</td>
+        </tr>
+    </table>
+    <a href="/home">Home</a>
+</body>
+</html>

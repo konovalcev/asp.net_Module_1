@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebStore.Modeis.EmployeeView>
+@{
+    ViewData["Title"] = "Список сотрудников";
+}
+
+<hr />
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device-width" charset="utf-8" />
+    <title>
+        Index
+    </title>
+</head>
+<body>
+    <table>
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td>@e.FirstName</td>
+                <td>@e.Surname</td>
+                <td>@Html.ActionLink("Детали", "Details", new { id = e.Id }) </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
