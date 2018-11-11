@@ -15,9 +15,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="Bower" Version="1.3.11" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="HomeController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="bower_components\bootstrap\.bower.json" />
+    <None Remove="bower_components\bootstrap\bower.json" />
   </ItemGroup>
 </Project>
