@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.Modeis;
 
@@ -46,15 +47,24 @@ namespace WebStore.Controllers
             }
         };
 
-        public IActionResult Index()
-        {
-            return View(_employees);
-        }
+        public IActionResult Index() => View(_employees);
 
         public IActionResult Details(int id)
         {
-            var employeeDetail = _employees.Find(x => x.Id == id);
+            var employeeDetail = _employees.FirstOrDefault(t => t.Id.Equals(id)); //.Find(x => x.Id == id);
+            if(employeeDetail is null) return NotFound();
             return View(employeeDetail);
         }
+
+        public IActionResult Shop() => View();
+        public IActionResult ProductDetails() => View();
+        public IActionResult Login() => View();
+        public IActionResult ContactUs() => View();
+        public IActionResult Checkout() => View();
+        public ActionResult Cart() => View();
+        public IActionResult BlogSingle() => View();
+        public IActionResult Blog() => View();
+        public new IActionResult NotFound() => View();
+
     }
 }
