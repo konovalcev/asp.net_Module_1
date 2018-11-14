@@ -12,6 +12,10 @@
     <Folder Include="Modeis\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="Views\Home\Partial\" />
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Infrastructure\Interfaces\" />
+    <Folder Include="Infrastructure\Implementations\" />
+    <Folder Include="Views\Employees\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,5 +30,8 @@
   <ItemGroup>
     <None Remove="bower_components\bootstrap\.bower.json" />
     <None Remove="bower_components\bootstrap\bower.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WebStore.csproj" />
   </ItemGroup>
 </Project>
