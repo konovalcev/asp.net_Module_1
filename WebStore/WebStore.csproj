@@ -31,4 +31,7 @@
     <None Remove="bower_components\bootstrap\.bower.json" />
     <None Remove="bower_components\bootstrap\bower.json" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="WebStore.csproj" />
+  </ItemGroup>
 </Project>
