@@ -12,7 +12,7 @@ namespace WebStore.Controllers
         public EmployeesController(IEmployeesData employeesData) => _employeesData = employeesData;
 
         /// <summary>
-        /// Вывод спискав
+        /// Вывод списка
         /// </summary>
         /// <returns>The index.</returns>
         public IActionResult Index()
