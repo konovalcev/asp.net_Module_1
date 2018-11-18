@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using WebStore.Modeis;
+using WebStore.Models;
 
 namespace WebStore.Infrastructure.Interfaces
 {

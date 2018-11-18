@@ -1,4 +1,9 @@
-﻿@await Html.PartialAsync("Partial/_Advertisement");
+﻿@model WebStore.Models.Product.CatalogViewModel
+@{
+    ViewData["Title"] = "Shop";
+}
+
+@await Html.PartialAsync("Partial/_Advertisement");
 
 <section>
     <div class="container">

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebStore.Infrastructure.Interfaces;
-using WebStore.Modeis;
+using WebStore.Models;
 
 namespace WebStore.Controllers
 {
@@ -43,7 +43,7 @@ namespace WebStore.Controllers
         public IActionResult Edit(int? id)
         {
             EmployeeView model;
-            if(id.HasValue)
+            if (id.HasValue)
             {
                 model = _employeesData.GetById(id.Value);
                 if (model is null) return NotFound();
@@ -59,22 +59,26 @@ namespace WebStore.Controllers
         [Route("edit/{id?}")]
         public IActionResult Edit(EmployeeView model)
         {
-            if(model.Id > 0)
+            if (ModelState.IsValid)
             {
-                var dbitem = _employeesData.GetById(model.Id);
-                if (dbitem is null) return NotFound();
-                dbitem.FirstName = model.FirstName;
-                dbitem.Surname = model.Surname;
-                dbitem.Age = model.Age;
-                dbitem.Position = model.Position;
-                dbitem.Salary = model.Salary;
+                if (model.Id > 0)
+                {
+                    var dbitem = _employeesData.GetById(model.Id);
+                    if (dbitem is null) return NotFound();
+                    dbitem.FirstName = model.FirstName;
+                    dbitem.Surname = model.Surname;
+                    dbitem.Age = model.Age;
+                    dbitem.Position = model.Position;
+                    dbitem.Salary = model.Salary;
+                }
+                else
+                {
+                    _employeesData.AddNew(model);
+                }
+                _employeesData.Commit();
+                return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                _employeesData.AddNew(model);
-            }
-            _employeesData.Commit();
-            return RedirectToAction(nameof(Index));
+            return View(model);
         }
 
         /// <summary>
