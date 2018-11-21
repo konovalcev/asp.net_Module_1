@@ -42,8 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Shared\Partial\_RecommendedItems.cshtml" />
+    <Content Remove="Views\Shared\Partial\_LeftSideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebStore.Domain\WebStore.Domain.csproj" />
+    <ProjectReference Include="..\WebStore.DomainNew\WebStore.DomainNew.csproj" />
+    <ProjectReference Include="..\WebStore.DAL\WebStore.DAL.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="app.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
