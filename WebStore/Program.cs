@@ -14,7 +14,6 @@ namespace WebStore
     {
         public static void Main(string[] args)
         {
-            var a = string.Empty;
             CreateWebHostBuilder(args).Build().Run();
         }
 
