@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Configuration;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebStore.DAL;
 using WebStore.Infrastructure.Interfaces;
 
 namespace WebStore
@@ -28,6 +31,8 @@ namespace WebStore
         {
             // Добавляем сервисы, необходимые для MVC
             services.AddMvc();
+            var connectionString = ConfigurationManager.ConnectionStrings["MSSQL"].ConnectionString;
+            services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(connectionString));
             // Добавляем разрешение зависимости
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
             services.AddSingleton<IProductData, InMemoryProductData>();
